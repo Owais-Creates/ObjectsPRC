@@ -18,9 +18,9 @@ const displayProperties = () => {
 
 displayProperties(car);
 
-// ---------------------------------------------------------------------------------------------------
+// // ---------------------------------------------------------------------------------------------------
 
-// Q2 - Define an object that represents the student information including name , age and grade implement a method to update the student's grade.
+// // Q2 - Define an object that represents the student information including name , age and grade implement a method to update the student's grade.
 
 const student = {
 
@@ -40,9 +40,9 @@ const updateGrade = (grade) => {
 
 updateGrade("B");
 
-// ---------------------------------------------------------------------------------------------------
+// // ---------------------------------------------------------------------------------------------------
 
-// Q3 - Write a program that takes an object as input and returns the number of properties it have. 
+// // Q3 - Write a program that takes an object as input and returns the number of properties it have. 
 
 const objj = {
     name: "owais",
@@ -59,10 +59,10 @@ console.log(` Number of properties - ${objCountProps(objj)}`);
 
 // ---------------------------------------------------------------------------------------------------
 
-// Q4 - Write a program that takes an object as input and returns the number of properties it have. 
+// // Q4 - Write a program that takes an object as input and returns the number of properties it have. 
 
 const checkObj = {
-    name : "owais"
+    name: "owais"
 }
 
 const check = (obj) => {
@@ -73,5 +73,64 @@ const check = (obj) => {
 
 console.log(`Is name exists in the above object ? -----> ${check(checkObj)}`)
 
+// ---------------------------------------------------------------------------------------------------
+
+// Q4 - Create an object representing a shopping cart with properties for items and quantities. Write methods to add an item, remove an item, and update the quantity of an item.
+
+const shoppingCart = {
+
+    items: {
+
+        Apple: 10,
+        Banana: 10
+
+    },
+
+    // function to add items .
+    addItem: function (item, quantity) {
+
+        if (this.items[item]) {
+
+            // console.log(`Previous quantity of Apple is ${this.items[item]}`)
+            this.items[item] += quantity;
+            // console.log(`Update quantity of Apple is ${quantity}`)
+
+        } else {
+
+            this.items[item] = quantity;
+        }
+    },
+
+
+    // Function to remove an item
+    removeItem: function (...item) {
+        if ( this.items[item] ){
+            delete this.items[item];
+        }else{
+            console.log(`This ${item} is not present`)
+        }
+    },
+
+    // Function to update items
+    updateItems : function(item,newQuantity){
+
+        if( this.items[item] ) { 
+
+            this.items[item] = newQuantity;
+
+        }else{
+
+            console.log( "The Item you want to Update does not exist" );
+
+        }
+
+    }
+
+}
+
+shoppingCart.addItem("Apple", 5)
+// shoppingCart.removeItem("Banana")
+shoppingCart.updateItems("Banana",20)
+console.log(shoppingCart.items)
 
 
