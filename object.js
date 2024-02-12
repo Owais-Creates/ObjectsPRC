@@ -104,23 +104,23 @@ const shoppingCart = {
 
     // Function to remove an item
     removeItem: function (...item) {
-        if ( this.items[item] ){
+        if (this.items[item]) {
             delete this.items[item];
-        }else{
+        } else {
             console.log(`This ${item} is not present`)
         }
     },
 
     // Function to update items
-    updateItems : function(item,newQuantity){
+    updateItems: function (item, newQuantity) {
 
-        if( this.items[item] ) { 
+        if (this.items[item]) {
 
             this.items[item] = newQuantity;
 
-        }else{
+        } else {
 
-            console.log( "The Item you want to Update does not exist" );
+            console.log("The Item you want to Update does not exist");
 
         }
 
@@ -130,7 +130,63 @@ const shoppingCart = {
 
 shoppingCart.addItem("Apple", 5)
 // shoppingCart.removeItem("Banana")
-shoppingCart.updateItems("Banana",20)
+shoppingCart.updateItems("Banana", 20)
 console.log(shoppingCart.items)
+
+// ---------------------------------------------------------------------------------------------------
+
+// Q5 - Create an object representing a person with properties for name, age, and address. Write a function to update the person's address.
+
+const personDetails = {
+
+    name: "Owais",
+    age: 22,
+    address: "Noida, Bihar 110069"
+
+};
+
+const updateAddress = (address) => {
+    personDetails.address = address
+}
+
+console.log(`Before updating ${personDetails.address}`);
+updateAddress("New Delhi, India 110074");
+console.log(`After updating ${personDetails.address}`);
+
+// ---------------------------------------------------------------------------------------------------
+
+// Q6 - Write a function to rename a property in an object, allowing the user to specify the old and new property names.
+
+const property = { 
+
+    firstName : "owais",
+    lastName : "ali",
+
+}
+
+const renameProperty = (obj, oldProp, newProp) => {
+
+    if (obj.hasOwnProperty(oldProp)) {
+
+        obj[newProp] = obj[oldProp];
+        delete obj[oldProp];
+
+    }else{
+
+        console.log(`${oldProp} is not present`);
+
+    }
+
+}
+
+renameProperty(property,"firstName","givenName")
+console.log(property);
+
+// ------------------------------------------------------------------------------------------------
+
+
+
+
+
 
 
